@@ -1,0 +1,14 @@
+task hello(description: 'Hello, Gradle', group: 'MyTask') << {
+    println 'Hello World!'
+}
+
+task helloExt(group: 'Greeting', description: 'My first task') {
+	
+	println 'Hello, World in congifuration phase.'
+	
+	doFirst {
+		println 'Hello World in doFirst, this is run in execution phase'
+	}
+} << {
+	println 'This is run in execution phase, equals do in the <doLast> in task body'
+}

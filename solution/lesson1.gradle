@@ -1,0 +1,32 @@
+class Hello {
+	public static void sayHello() {
+		System.out.println("Hello, Gradle");
+	}
+}
+
+// Here is not like the Java syntax, not add ';' in the end of the line
+Hello hello = new Hello()
+hello.sayHello()
+
+// Here foo is a number
+def foo = 6.5
+
+println "$foo, ${foo.class}"
+
+// Here foo is change to a string
+foo = "hello$foo"
+
+println "foo: $foo"
+
+// Define a function by groovy syntax
+def doubleIt(n) {
+	n+n
+}
+
+def result = doubleIt("$foo")
+println "$result"
+
+def foo1 = 5
+
+result = doubleIt(foo1)
+println "$result"

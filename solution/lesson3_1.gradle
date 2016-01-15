@@ -1,0 +1,47 @@
+def userName = 'ZHANG SHUAI'
+
+task configUserName << {
+	userName = 'Yao Cheng'
+}
+
+
+task printName(dependsOn: configUserName) {
+	
+	// This is check in the execution phase
+	onlyIf { "$userName".equals('ZHANG SHUAI')}
+	
+    doLast {
+        println "Show me the name: $userName"
+    }
+}
+
+// This is check in the configuration phase
+// printName.enabled = false
+
+
+
+
+/*
+
+	task have 3 ways to add params.
+	
+	1st: Add in gradle.properties, e.g. greeting='Hello from outside properties script'
+	2nd: Add in task ext, just like below
+	3rd: Add in commandLine gradle -b xxx.gradle -Pgreeting="Hello from the command line" xxxTask
+*/
+
+
+
+// def greeting = "Define in configuration"
+
+task taskWithParams {
+	ext {
+		greeting = "Hello from inside the build script"
+	}
+	
+    doLast {
+        println "Ummm, just how I like it."
+		println "$greeting"
+    }
+}
+
