@@ -24,3 +24,6 @@ About task dependencies
 
 ## Lesson4
 About task type
+
+## Document
+[Session PDF](https://github.com/Tony---Zhang/HelloGradle/blob/master/doc/gradle.pdf)
